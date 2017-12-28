@@ -24,5 +24,5 @@ class hug:
         await self.bot.say(embed=embed)
 
 def setup(bot):
-    n = Hug(bot)
+    n = hug(bot)
     bot.add_cog(n)
