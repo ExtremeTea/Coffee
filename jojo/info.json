@@ -1,6 +1,6 @@
 {
     "AUTHOR" : "ExtremeTea",
-    "INSTALL_MSG" : "You have successfully installed Jojo, share some jojo now",
+    "INSTALL_MSG" : "You have successfully installed jojo, share some jojo now",
     "NAME" : "jojo",
     "SHORT" : "[p]jojo @user",
     "DESCRIPTION" : "Give someone a Jojo reference",
