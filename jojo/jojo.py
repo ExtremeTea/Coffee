@@ -14,7 +14,7 @@ class jojo:
 
         jojo = "**{0} got a referennce by {1}!**"
 
-        choices = ['http://i.imgur.com/10VrpFZ.gif', 'http://i.imgur.com/x0u35IU.gif', 'http://i.imgur.com/0gTbTNR.gif', 'http://i.imgur.com/hlLCiAt.gif', 'http://i.imgur.com/sAANBDj.gif']
+        choices = ['https://i.imgur.com/XJhnSv5.gif', 'https://i.imgur.com/3xhoZg8.gif', 'https://i.imgur.com/D7SqDBP.gif', 'https://i.imgur.com/dUAc1jw.gif', 'https://i.imgur.com/W7OsiYW.gif']
 
         image = random.choice(choices)
 
