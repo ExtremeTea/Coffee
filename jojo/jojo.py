@@ -7,12 +7,12 @@ class hug:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def hug(self, context, member: discord.Member):
-        """hug someone!"""
+    async def jojo(self, context, member: discord.Member):
+        """Give someone Jojo love!"""
         author = context.message.author.mention
         mention = member.mention
 
-        hug = "**{0} got hugged by {1}!**"
+        jojo = "**{0} got a referennce by {1}!**"
 
         choices = ['http://i.imgur.com/10VrpFZ.gif', 'http://i.imgur.com/x0u35IU.gif', 'http://i.imgur.com/0gTbTNR.gif', 'http://i.imgur.com/hlLCiAt.gif', 'http://i.imgur.com/sAANBDj.gif']
 
@@ -24,5 +24,5 @@ class hug:
         await self.bot.say(embed=embed)
 
 def setup(bot):
-    n = hug(bot)
+    n = jojo(bot)
     bot.add_cog(n)
