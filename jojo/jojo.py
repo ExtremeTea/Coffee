@@ -18,7 +18,7 @@ class jojo:
 
         image = random.choice(choices)
 
-        embed = discord.Embed(description=hug.format(mention, author), colour=discord.Colour.blue())
+        embed = discord.Embed(description=jojo.format(mention, author), colour=discord.Colour.blue())
         embed.set_image(url=image)
 
         await self.bot.say(embed=embed)
