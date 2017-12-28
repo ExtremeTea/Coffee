@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "ExtremeTea",
+    "INSTALL_MSG" : "You have successfully installed Kiss. Now smooch up",
+    "NAME" : "kiss",
+    "SHORT" : "[p]kiss @user",
+    "DESCRIPTION" : "Kiss someone",
+    "TAGS" : ["kiss"],
+    "REQUIREMENTS" : [],
+    "HIDDEN" : false
+}

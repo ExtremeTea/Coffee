@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "ExtremeTea",
+    "INSTALL_MSG" : "You have successfully installed Jojo, share some jojo now",
+    "NAME" : "jojo",
+    "SHORT" : "[p]jojo @user",
+    "DESCRIPTION" : "Give someone a Jojo reference",
+    "TAGS" : ["jojo"],
+    "REQUIREMENTS" : [],
+    "HIDDEN" : false
+}
