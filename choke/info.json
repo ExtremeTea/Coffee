@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "ExtremeTea",
+    "INSTALL_MSG" : "You have successfully installed choke, choke someone now",
+    "NAME" : "choke",
+    "SHORT" : "[p]choke @user",
+    "DESCRIPTION" : "Choke people",
+    "TAGS" : ["choke"],
+    "REQUIREMENTS" : [],
+    "HIDDEN" : false
+}
