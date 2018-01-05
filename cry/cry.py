@@ -12,7 +12,7 @@ class Cry:
         author = context.message.self.
        
 
-        cry = "**{1} started crying**"
+        cry = "**{0} started crying**"
 
         choices = ['https://78.media.tumblr.com/e9fb46144efc579746e57bcaebd3350a/tumblr_olrmy4djBG1tydz8to1_500.gif', 'https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif', 'http://media1.giphy.com/media/oAW9QPkQwJqJq/giphy.gif', 'https://media.giphy.com/media/xQVq9Wv61jlSw/giphy.gif', 'https://78.media.tumblr.com/2878ee0ff1de9034a8b96e77915771ea/tumblr_opqkpsFVyG1scqbpuo1_500.gif']
 
