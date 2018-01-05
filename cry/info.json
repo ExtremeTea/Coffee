@@ -2,7 +2,7 @@
     "AUTHOR" : "ExtremeTea",
     "INSTALL_MSG" : "You started crying",
     "NAME" : "cry",
-    "SHORT" : "[p]cry",
+    "SHORT" : "[p]cry @user",
     "DESCRIPTION" : "Show everyone that you're crying",
     "TAGS" : ["cry"],
     "REQUIREMENTS" : [],
