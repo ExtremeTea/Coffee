@@ -7,12 +7,12 @@ class Cry:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def cry(self, context, member: discord.Member):
+    async def cry(self, context):
         """Cry now"""
-        author = context.message.author.mention
-        mention = member.mention
+        author = context.message.author.
+       
 
-        cry = "**{0} started crying**"
+        cry = "**{1} started crying**"
 
         choices = ['https://78.media.tumblr.com/e9fb46144efc579746e57bcaebd3350a/tumblr_olrmy4djBG1tydz8to1_500.gif', 'https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif', 'http://media1.giphy.com/media/oAW9QPkQwJqJq/giphy.gif', 'https://media.giphy.com/media/xQVq9Wv61jlSw/giphy.gif', 'https://78.media.tumblr.com/2878ee0ff1de9034a8b96e77915771ea/tumblr_opqkpsFVyG1scqbpuo1_500.gif']
 
