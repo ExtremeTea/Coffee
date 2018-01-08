@@ -12,7 +12,7 @@ class jojo:
         author = context.message.author.mention
         mention = member.mention
 
-        jojo = "**{0} got a referennce by {1}!**"
+        jojo = "**{0} got a reference by {1}!**"
 
         choices = ['https://i.imgur.com/XJhnSv5.gif', 'https://i.imgur.com/3xhoZg8.gif', 'https://i.imgur.com/D7SqDBP.gif', 'https://i.imgur.com/dUAc1jw.gif', 'https://i.imgur.com/W7OsiYW.gif']
 
