@@ -14,7 +14,7 @@ class choke:
 
         choke = "**{0} got choked by {1}!**"
 
-        choices = ['https://i.pinimg.com/originals/c8/50/da/c850daccaff312f7aa1c6cb23b62b512.gif', 'https://i.pinimg.com/originals/de/65/28/de6528ed86c887ff598c39b6e97df7e2.gif', 'https://78.media.tumblr.com/79675353fbeeed25969255ec6ee82a0f/tumblr_n94nbhTTM41rb06tgo1_r2_500.gif', 'https://data.whicdn.com/images/107788263/original.gif']
+        choices = ['https://i.pinimg.com/originals/c8/50/da/c850daccaff312f7aa1c6cb23b62b512.gif', 'https://i.pinimg.com/originals/de/65/28/de6528ed86c887ff598c39b6e97df7e2.gif', 'https://78.media.tumblr.com/79675353fbeeed25969255ec6ee82a0f/tumblr_n94nbhTTM41rb06tgo1_r2_500.gif', 'https://data.whicdn.com/images/107788263/original.gif', 'https://m.popkey.co/505e5c/p8ONy.gif', 'http://i817.photobucket.com/albums/zz93/KawaiiLollypop/Hetalia/hap23-b.gif', 'https://pa1.narvii.com/6064/3789e7bbafc6a77d908bd8501e378d0e4e604144_hq.gif']
 
         image = random.choice(choices)
 
