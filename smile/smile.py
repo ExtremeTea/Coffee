@@ -7,12 +7,12 @@ class smile:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def smile(self, context, member: discord.Self):
+    async def smile(self, context, member: discord.Member):
         """smile for everyone!"""
-        author = context.message.author.
-        mention = member.
+        author = context.message.author.mention
+        mention = member.mention
 
-        smile = "**Smiled**"
+        smile = "**{0} saw a smile from {1}!**"
 
         choices = ['https://media.giphy.com/media/8R8htEk0IgAlq/giphy.gif', 'https://media.giphy.com/media/rFfmUWVMOyKVG/giphy.gif', 'https://media.giphy.com/media/ellxlkgbPTiM0/giphy.gif', 'https://media.giphy.com/media/3lBOIbP9ghX2/giphy.gif']
 
