@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "ExtremeTea",
+    "INSTALL_MSG" : "Now slap people",
+    "NAME" : "slap",
+    "SHORT" : "[p]slap @user",
+    "DESCRIPTION" : "Slap someone you hate or love",
+    "TAGS" : ["slap"],
+    "REQUIREMENTS" : [],
+    "HIDDEN" : false
+}
