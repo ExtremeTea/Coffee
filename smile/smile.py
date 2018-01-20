@@ -12,7 +12,7 @@ class smile:
         author = context.message.author.mention
         mention = member.mention
 
-        smile = "**{0} saw a smile from {1}!**"
+        smile = "**Smiled**"
 
         choices = ['https://media.giphy.com/media/8R8htEk0IgAlq/giphy.gif', 'https://media.giphy.com/media/rFfmUWVMOyKVG/giphy.gif', 'https://media.giphy.com/media/ellxlkgbPTiM0/giphy.gif', 'https://media.giphy.com/media/3lBOIbP9ghX2/giphy.gif']
 
