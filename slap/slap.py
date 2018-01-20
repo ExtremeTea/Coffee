@@ -8,7 +8,7 @@ class slap:
 
     @commands.command(pass_context=True)
     async def slap(self, context, member: discord.Member):
-        """slap a for everyone!"""
+        """slap for everyone!"""
         author = context.message.author.mention
         mention = member.mention
 
