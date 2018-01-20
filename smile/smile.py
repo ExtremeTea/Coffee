@@ -7,10 +7,10 @@ class smile:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def smile(self, context, member: discord.Member):
+    async def smile(self, context, member: discord.Self):
         """smile for everyone!"""
-        author = context.message.author.mention
-        mention = member.mention
+        author = context.message.author.
+        mention = member.
 
         smile = "**Smiled**"
 
