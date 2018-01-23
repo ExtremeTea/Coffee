@@ -1,4 +1,4 @@
-from discord.ext import commands
+huggedfrom discord.ext import commands
 import random
 import discord
 
@@ -8,13 +8,13 @@ class hug:
 
     @commands.command(pass_context=True)
     async def hug(self, context, member: discord.Member):
-        """hug someone!"""
+        """hug everyone!"""
         author = context.message.author.mention
         mention = member.mention
 
         hug = "**{0} got hugged by {1}!**"
 
-        choices = ['https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif', 'https://media.giphy.com/media/5eyhBKLvYhafu/giphy.gif', 'https://i.imgur.com/Ltmb8aa.gif', 'https://media1.tenor.com/images/42922e87b3ec288b11f59ba7f3cc6393/tenor.gif']
+        choices = ['https://media.giphy.com/media/tX29X2Dx3sAXS/giphy.gif', 'https://media.giphy.com/media/RXGNsyRb1hDJm/giphy.gif', 'https://media.giphy.com/media/exaa8OED1vvq/giphy.gif', 'https://media.giphy.com/media/1iw7RG8JbOmpq/giphy.gif', 'https://media.giphy.com/media/xXRDuvEcMA2JO/giphy.gif', 'https://media.giphy.com/media/xUNd9HZq1itMkiK652/giphy.gif', 'https://media1.giphy.com/media/KtWEleZrkvois/giphy.gif']
 
         image = random.choice(choices)
 

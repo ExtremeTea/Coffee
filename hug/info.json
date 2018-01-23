@@ -1,9 +1,9 @@
 {
     "AUTHOR" : "ExtremeTea",
-    "INSTALL_MSG" : "Hug people now,
+    "INSTALL_MSG" : "Now hug people",
     "NAME" : "hug",
     "SHORT" : "[p]hug @user",
-    "DESCRIPTION" : "Hug someone",
+    "DESCRIPTION" : "hug someone you hate or love",
     "TAGS" : ["hug"],
     "REQUIREMENTS" : [],
     "HIDDEN" : false
