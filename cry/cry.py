@@ -7,9 +7,9 @@ class Cry:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def cry(self, context, member: discord.Member):
+    async def cry(self, context, member: discord.author):
         """Cry now"""
-        author = context.message.author.mention
+        author = context.message.author
         mention = member.mention
 
         cry = "**{0} starting cry because of {1}*" 
@@ -18,7 +18,7 @@ class Cry:
 
         image = random.choice(choices)
 
-        embed = discord.Embed(description=cry.format(author, mention), colour=discord.Colour.blue())
+        embed = discord.Embed(description=cry.format(author), colour=discord.Colour.blue())
         embed.set_image(url=image)
 
         await self.bot.say(embed=embed)
