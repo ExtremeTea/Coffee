@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "ExtremeTea",
+    "INSTALL_MSG" : "Installing TBIB, Don't rush",
+    "NAME" : "tbib",
+    "SHORT" : "Display image board pictures",
+    "DESCRIPTION" : "Browse The Big Image Board",
+    "TAGS" : ["booru", "images", "TBIB"],
+    "HIDDEN" : false
+}
