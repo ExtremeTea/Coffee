@@ -162,7 +162,7 @@ async def fetch_image(self, ctx, randomize : bool=False, tags : list=[]):
     rating      = ""
     ratingColor = "FFFFFF"
     ratingWord  = "unknown"
-    search      = "http://tbib.org/index.php?page=post&limit=1&q=index&tags="
+    search      = "http://tbib.org/index.php?page=post&s=list&tags="
     tagSearch   = ""
     verbose     = False
     # Set verbosity to true if the current server has it set as such
