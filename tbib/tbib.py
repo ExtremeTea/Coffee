@@ -214,7 +214,7 @@ async def fetch_image(self, ctx, randomize : bool=False, tags : list=[]):
                 embedTitle = "The Big IageBoard #{}".format(imageId)
 
                 # Sets the URL to be linked
-                embedLink = "https://tbib.org/index.php?page=dapi&s=post&q=index{}".format(imageId)
+                embedLink = "https://tbib.org/index.php?page=post&s=view&id={}".format(imageId)
 
                 # Check for the rating and set an appropriate color
                 rating = website[0].get('rating')
