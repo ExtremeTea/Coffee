@@ -275,4 +275,4 @@ def check_files():
 def setup(bot):
     check_folder()
     check_files()
-    bot.add_cog(gel(bot))
+    bot.add_cog(Gel(bot))
