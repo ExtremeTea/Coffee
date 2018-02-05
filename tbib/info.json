@@ -1,0 +1,8 @@
+{
+    "NAME" : "tbib",
+    "AUTHOR" : "ExtremeTea",
+    "SHORT" : "Search http://tbib.org/ for anime pictures",
+    "DESCRIPTION" : "Search http://tbib.org/ \n\nUsage: [p]tbib [tags...]: Fetch the latest image\n[p]tbibr [tags...]: Fetch a random image\n[p]tbibfilter list: Lists all filters applied to the server\n[p]tbibfilter add [filter name]: Add a filter to the server\n[p]tbibfilter del [filter name]: Delete a filter from the server\n\nDisclaimer: By default this cog does not display NSFW content, but it is able to through setting filters.",
+    "TAGS" : [ "anime", "images", "search" ],
+    "HIDDEN" : false
+}
