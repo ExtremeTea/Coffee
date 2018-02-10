@@ -199,7 +199,7 @@ async def fetch_image(self, ctx, randomize : bool=False, tags : list=[]):
                 imageId = website[0].get('id')
 
                 # Sets the embed title
-                embedTitle = "tbibchan Image #{}".format(imageId)
+                embedTitle = "The Big ImageBoard #{}".format(imageId)
 
                 # Sets the URL to be linked
                 embedLink = "https://tbib.org/index.php?page=dapi&s=post&q=index{}".format(imageId)
@@ -263,4 +263,3 @@ def setup(bot):
     check_folder()
     check_files()
     bot.add_cog(tbib(bot))
-tbib
