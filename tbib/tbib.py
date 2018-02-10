@@ -6,18 +6,16 @@ from __main__ import send_cmd_help
 from urllib import parse
 import os
 import aiohttp
-import random
 
 class tbib:
     def __init__(self, bot):
         self.bot = bot
-        self.filters = fileIO("data/tbib/filters.json", "load")
-        self.settings = fileIO("data/tbib/settings.json", "load")
+        self.filters = fileIO("data/tbib/filters.json","load")
+        self.settings = fileIO("data/tbib/settings.json","load")
 
     @commands.command(pass_context=True,no_pm=True)
     async def tbib(self, ctx, *text):
-        """Retrieves the latest result from TBIB"""
-        server = ctx.message.server
+        """Retrieves the latest result from The Big ImageBoard"""
         if len(text) > 0:
             await fetch_image(self, ctx, randomize=False, tags=text)
         else:
@@ -26,7 +24,6 @@ class tbib:
     @commands.command(pass_context=True,no_pm=True)
     async def tbibr(self, ctx, *text):
         """Retrieves a random result from The Big ImageBoard"""
-        server = ctx.message.server
         await fetch_image(self, ctx, randomize=True, tags=text)
 
     @commands.group(pass_context=True)
@@ -43,21 +40,21 @@ class tbib:
     async def _add_tbibfilter(self, ctx, filtertag : str):
         """Adds a tag to the server's tbib filter list
 
-           Example: !tbibfilter add rating:s"""
+           Example: !tbibfilter add rating:safe"""
         server = ctx.message.server
         if server.id not in self.filters:
             self.filters[server.id] = self.filters["default"]
-            fileIO("data/tbib/filters.json", "save", self.filters)
-            self.filters = fileIO("data/tbib/filters.json", "load")
+            fileIO("data/tbib/filters.json","save",self.filters)
+            self.filters = fileIO("data/tbib/filters.json","load")
         if len(self.filters[server.id]) < int(self.settings["maxfilters"]):
             if filtertag not in self.filters[server.id]:
                 self.filters[server.id].append(filtertag)
-                fileIO("data/tbib/filters.json", "save", self.filters)
+                fileIO("data/tbib/filters.json","save",self.filters)
                 await self.bot.say("Filter '{}' added to the server's tbib filter list.".format(filtertag))
             else:
                 await self.bot.say("Filter '{}' is already in the server's tbib filter list.".format(filtertag))
         else:
-            await self.bot.say("This server has exceeded the maximum filters ({}/{}). https://www.youtube.com/watch?v=1MelZ7xaacs".format(len(self.filters[server.id]), self.settings["maxfilters"]))
+            await self.bot.say("This server has exceeded the maximum filters ({}/{}).".format(len(self.filters[server.id]), self.settings["maxfilters"]))
 
     @tbibfilter.command(name="del", pass_context=True, no_pm=True)
     @checks.admin_or_permissions(manage_server=True)
@@ -66,23 +63,23 @@ class tbib:
 
            Without arguments, reverts to the default tbib filter list
 
-           Example: !tbibfilter del rating:s"""
+           Example: !tbibfilter del rating:safe"""
         server = ctx.message.server
         if len(filtertag) > 0:
             if server.id not in self.filters:
                 self.filters[server.id] = self.filters["default"]
-                fileIO("data/tbib/filters.json", "save", self.filters)
-                self.filters = fileIO("data/tbib/filters.json", "load")
+                fileIO("data/tbib/filters.json","save",self.filters)
+                self.filters = fileIO("data/tbib/filters.json","load")
             if filtertag in self.filters[server.id]:
                 self.filters[server.id].remove(filtertag)
-                fileIO("data/tbib/filters.json", "save", self.filters)
+                fileIO("data/tbib/filters.json","save",self.filters)
                 await self.bot.say("Filter '{}' deleted from the server's tbib filter list.".format(filtertag))
             else:
                 await self.bot.say("Filter '{}' does not exist in the server's tbib filter list.".format(filtertag))
         else:
             if server.id in self.filters:
                 del self.filters[server.id]
-                fileIO("data/tbib/filters.json", "save", self.filters)
+                fileIO("data/tbib/filters.json","save",self.filters)
                 await self.bot.say("Reverted the server to the default tbib filter list.")
             else:
                 await self.bot.say("Server is already using the default tbib filter list.")
@@ -100,8 +97,12 @@ class tbib:
         await self.bot.say("{} tbib filter list contains:```\n{}```".format(targetServer, filterlist))
 
     @commands.group(pass_context=True)
+    @checks.is_owner()
     async def tbibset(self, ctx):
-        """Manages tbib options"""
+        """Manages tbib options
+           Global only
+
+           Keep in mind that your information, while stored locally, is stored in plain text"""
         if ctx.invoked_subcommand is None:
             await send_cmd_help(ctx)
 
@@ -136,13 +137,13 @@ class tbib:
         fileIO("data/tbib/settings.json", "save", self.settings)
 
     @tbibset.command(name="maxfilters")
-    @checks.is_owner()
     async def _maxfilters_tbibset(self, maxfilters):
         """Sets the global tag limit for the filter list
 
-           Gives an error when a user tries to add a filter while the server's filter list contains a certain amount of tags"""
+           Gives an error when a user tries to add a filter when the server's filter list contains a certain amount of tags"""
+        self.settings = fileIO("data/tbib/settings.json","load")
         self.settings["maxfilters"] = maxfilters
-        fileIO("data/tbib/settings.json", "save", self.settings)
+        fileIO("data/tbib/settings.json","save",self.settings)
         await self.bot.say("Maximum filters allowed per server for tbib set to '{}'.".format(maxfilters))
 
 async def fetch_image(self, ctx, randomize : bool=False, tags : list=[]):
@@ -165,6 +166,7 @@ async def fetch_image(self, ctx, randomize : bool=False, tags : list=[]):
     search      = "http://tbib.org/index.php?page=post&s=list&tags="
     tagSearch   = ""
     verbose     = False
+
     # Set verbosity to true if the current server has it set as such
     if server.id in self.settings and self.settings[server.id]["verbose"]:
         verbose = True
@@ -176,47 +178,33 @@ async def fetch_image(self, ctx, randomize : bool=False, tags : list=[]):
         tagSearch += " ".join(self.filters[server.id])
     else:
         tagSearch += " ".join(self.filters["default"])
+
+    # Randomize results
+    if randomize:
+        tagSearch += " order:random"
     search += parse.quote_plus(tagSearch)
 
-    # Inform users about image retrieval
+    # Inform users about image retrieving
     message = await self.bot.say("Fetching tbib image...")
 
     # Fetch and display the image or an error
     try:
-        # Fetch the xml page to randomize the results
-        if randomize:
-            async with aiohttp.get(search) as r:
-                website = await r.text()
-
-            # Gets the amount of results
-            countStart = website.find("count=\"")
-            countEnd = website.find("\"", countStart+7)
-            count = website[countStart+7:countEnd]
-
-            # Picks a random page and sets the search URL to json
-            pid = str(random.randint(0, int(count)))
-            search += "&json=1&pid={}".format(pid)
-        else:
-            # Sets the search URL to json
-            search += "&json=1"
-
-        # Fetches the json page
         async with aiohttp.get(search) as r:
             website = await r.json()
-        if website:
+        if website != []:
             # Sets the image URL
-            imageURL = "https:{}".format(website[0]['file_url'])
+            imageURL = "https:{}".format(website[0].get("file_url")).replace(' ', '+')
             if verbose:
                 # Fetches the image ID
                 imageId = website[0].get('id')
 
                 # Sets the embed title
-                embedTitle = "The Big IageBoard #{}".format(imageId)
+                embedTitle = "tbibchan Image #{}".format(imageId)
 
                 # Sets the URL to be linked
                 embedLink = "https://tbib.org/index.php?page=dapi&s=post&q=index{}".format(imageId)
 
-                # Check for the rating and set an appropriate color
+                # Checks for the rating and set an appropriate color
                 rating = website[0].get('rating')
                 if rating == "s":
                     ratingColor = "00FF00"
@@ -251,27 +239,28 @@ async def fetch_image(self, ctx, randomize : bool=False, tags : list=[]):
 
 def check_folder():
     if not os.path.exists("data/tbib"):
-        print("Creating data/tbib folder...")
+        print ("Creating data/tbib folder...")
         os.makedirs("data/tbib")
 
 def check_files():
     filters = {"default":["rating:safe"]}
-    settings = {"maxfilters":"50"}
+    settings = {"username":"", "api_key":"", "maxfilters":"10"}
 
     if not fileIO("data/tbib/filters.json", "check"):
-        print("Creating default tbib filters.json...")
+        print ("Creating default tbib filters.json...")
         fileIO("data/tbib/filters.json", "save", filters)
     else:
         filterlist = fileIO("data/tbib/filters.json", "load")
         if "default" not in filterlist:
             filterlist["default"] = filters["default"]
-            print("Adding default tbib filters...")
+            print ("Adding default tbib filters...")
             fileIO("data/tbib/filters.json", "save", filterlist)
     if not fileIO("data/tbib/settings.json", "check"):
-        print("Creating default tbib settings.json...")
+        print ("Creating default tbib settings.json...")
         fileIO("data/tbib/settings.json", "save", settings)
 
 def setup(bot):
     check_folder()
     check_files()
     bot.add_cog(tbib(bot))
+tbib
